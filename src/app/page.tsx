@@ -14,14 +14,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-8">CCC Year End Combined Service</h1>
+        <h1 className="text-3xl font-bold text-center mb-8">CCC Year End Combined Service 2024</h1>
         <div className="bg-white shadow-sm rounded-lg p-6 mb-8">
           <h2 className="text-xl font-semibold mb-4">Share Your Testimony</h2>
           <StoryForm />
         </div>
         <div className="bg-white shadow-sm rounded-lg p-6">
           <h2 className="text-xl font-semibold mb-4">Recent Testimonies</h2>
-          <Suspense fallback={<div>Loading stories...</div>}>
+          <Suspense fallback={<div>Loading testimonies...</div>}>
             <StoriesContainer />
           </Suspense>
         </div>
