@@ -67,7 +67,7 @@ export function StoryForm() {
         />
       </div>
       <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Submitting...' : 'Submit Story'}
+        {isSubmitting ? 'Submitting...' : 'Submit Testimony'}
       </Button>
     </form>
   )
