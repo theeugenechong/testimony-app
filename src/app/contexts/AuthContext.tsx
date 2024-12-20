@@ -14,7 +14,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const login = (username: string, password: string) => {
-    if (username === 'cccadmin' && password === 'CCCadmin123!') {
+    // TODO: add to Vercel environment variables
+    if (username === process.env.NEXT_PUBLIC_ADMIN_USERNAME! && password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD!) {
       setIsLoggedIn(true);
       return true;
     }
