@@ -33,7 +33,7 @@ export async function addStory(story: Omit<Story, 'id' | 'created_at'>): Promise
     return { success: false, error: 'Your story contains inappropriate content.' }
   }
 
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from('stories')
     .insert([story])
     .select()

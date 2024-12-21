@@ -5,7 +5,7 @@ import { useAuth } from '../contexts/AuthContext'
 import { deleteStoryAction } from '../actions'
 import { Story } from '@/lib/stories'
 import { Button } from '@/components/ui/button'
-import { useRouter } from 'next/navigation'
+// import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 
 interface StoryListProps {
@@ -15,7 +15,7 @@ interface StoryListProps {
 export function StoryList({ initialStories }: StoryListProps) {
   const [stories, setStories] = useState(initialStories)
   const { isLoggedIn } = useAuth()
-  const router = useRouter()
+  // const router = useRouter()
 
   useEffect(() => {
     const channel = supabase
