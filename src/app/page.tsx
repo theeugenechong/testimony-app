@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { getStories } from '@/lib/stories'
 import { StoryForm } from './components/StoryForm'
 import { StoryList } from './components/StoryList'
+import Image from 'next/image'
 
 export const revalidate = 0 // disable cache for this page
 
@@ -13,8 +14,10 @@ async function StoriesContainer() {
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-8">CCC Year End Combined Service 2024</h1>
+      <div className="max-w-3xl mx-auto z-10">
+        <div className="flex justify-center mb-8" style={{ marginTop: '-20px' }}>
+          <Image src="/year-end-website-logo.png" alt="CCC Year End Combined Service 2024" width={250} height={600} />
+        </div>
         <div className="bg-white shadow-sm rounded-lg p-6 mb-8">
           <h2 className="text-xl font-semibold mb-4">Share Your Testimony</h2>
           <StoryForm />
