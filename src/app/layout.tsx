@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CCC Year End Combined Service 2024",
+  title: "CCCJB Family Camp 2025",
   description: "Testimony submissions for CCC Year End service",
 };
 
