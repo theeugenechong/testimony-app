@@ -4,9 +4,11 @@ import Link from 'next/link';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export function Header() {
   const { isLoggedIn, logout } = useAuth();
+  const pathname = usePathname();
 
   return (
     <header className="bg-white shadow-sm">
@@ -22,12 +24,19 @@ export function Header() {
             />
           </Link>
         </div>
-        {isLoggedIn ? (
-          <Button onClick={logout}>Log Out</Button>
-        ) : (
-          <Link href="/login" passHref>
-            <Button>Log In</Button>
-          </Link>
+        {pathname !== '/login' && (
+          isLoggedIn ? (
+            <Button 
+              onClick={logout}
+              className="transform hover:shadow-lg active:scale-95 transition-all duration-200 ease-in-out hover:bg-primary/90"
+            >Log Out</Button>
+          ) : (
+            <Link href="/login" passHref>
+              <Button
+                className="transform hover:shadow-lg active:scale-95 transition-all duration-200 ease-in-out hover:bg-primary/90"
+              >Log In</Button>
+            </Link>
+          )
         )}
       </div>
     </header>
