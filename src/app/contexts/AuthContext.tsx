@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -13,10 +13,18 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  // check localStorage for login status on initial load
+  useEffect(() => {
+    const loginStatus = localStorage.getItem('isLoggedIn');
+    if (loginStatus === 'true') {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
   const login = (username: string, password: string) => {
-    // TODO: add to Vercel environment variables
     if (username === process.env.NEXT_PUBLIC_ADMIN_USERNAME! && password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD!) {
       setIsLoggedIn(true);
+      localStorage.setItem('isLoggedIn', 'true');
       return true;
     }
     return false;
@@ -24,6 +32,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn');
   };
 
   return (
