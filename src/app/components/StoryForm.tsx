@@ -66,7 +66,11 @@ export function StoryForm() {
           placeholder="Anonymous"
         />
       </div>
-      <Button type="submit" disabled={isSubmitting}>
+      <Button 
+        type="submit" 
+        disabled={isSubmitting} 
+        className="transform hover:shadow-lg active:scale-95 transition-all duration-200 ease-in-out hover:bg-primary/90"
+      >
         {isSubmitting ? 'Submitting...' : 'Submit Testimony'}
       </Button>
     </form>

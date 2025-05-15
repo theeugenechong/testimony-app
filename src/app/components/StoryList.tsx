@@ -58,7 +58,12 @@ export function StoryList({ initialStories }: StoryListProps) {
                 </time>
               </div>
               {isLoggedIn && (
-                <Button variant="destructive" size="sm" onClick={() => handleDelete(story.id)}>
+                <Button 
+                  variant="destructive" 
+                  size="sm"
+                  className="transform hover:shadow-lg active:scale-95 transition-all duration-200 ease-in-out" 
+                  onClick={() => handleDelete(story.id)}
+                >
                   Delete
                 </Button>
               )}
