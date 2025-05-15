@@ -6,6 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -26,7 +27,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Log in</h2>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Login</h2>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -70,11 +71,19 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full transform hover:shadow-lg active:scale-95 transition-all duration-200 ease-in-out hover:bg-primary/90">
                 Log in
               </Button>
             </div>
           </form>
+          <div className="mt-6 text-center">
+            <Link 
+              href="/" 
+              className="text-sm text-gray-500 hover:text-gray-700 transition-colors duration-200"
+            >
+              ← Back to Home
+            </Link>
+          </div>
         </div>
       </div>
     </div>
